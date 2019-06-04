@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+
+<!--
+/* Copyright (c) 2004 michael j pan.  All rights reserved.   */
+/* Use subject to the same conditions as Nutch. */
+/* see http://www.nutch.org/LICENSE.txt. */
+-->
+
+<project name="ontology" default="jar">
+
+  <import file="../build-plugin.xml"/>
+
+  <!-- for junit test -->
+  <mkdir dir="${build.test}/data"/>
+  <copy file="sample/time.owl" todir="${build.test}/data"/>
+
+</project>

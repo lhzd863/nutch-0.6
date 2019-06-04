@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin
+   id="language-identifier"
+   name="Language Identification Parser/Filter"
+   version="1.0.0"
+   provider-name="nutch.org">
+
+   <extension-point
+      id="net.nutch.parse.HtmlParseFilter"
+      name="HTML Parse Filter"/>
+
+   <extension-point
+      id="net.nutch.indexer.IndexingFilter"
+      name="Nutch Indexing Filter"/>
+
+   <extension-point
+      id="net.nutch.searcher.QueryFilter"
+      name="Nutch Query Filter"/>
+
+    <runtime>
+      <library name="language-identifier.jar">
+         <export name="*"/>
+      </library>
+   </runtime>
+
+   <extension id="net.nutch.analysis.lang.LanguageParser"
+              name="Nutch language Parser"
+              point="net.nutch.parse.HtmlParseFilter">
+      <implementation id="LanguageParser"
+                      class="net.nutch.analysis.lang.HTMLLanguageParser"/>
+   </extension>
+   
+   <extension id="net.nutch.analysis.lang"
+              name="Nutch language identifier filter"
+              point="net.nutch.indexer.IndexingFilter">
+      <implementation id="LanguageIdentifier"
+                      class="net.nutch.analysis.lang.LanguageIdentifier"/>
+   </extension>
+
+
+   <extension id="net.nutch.analysis.lang.LanguageQueryFilter"
+              name="Nutch Language Query Filter"
+              point="net.nutch.searcher.QueryFilter">
+      <implementation id="LanguageQueryFilter"
+                      class="net.nutch.analysis.lang.LanguageQueryFilter"
+                      raw-fields="lang"/>
+   </extension>
+
+
+</plugin>
+

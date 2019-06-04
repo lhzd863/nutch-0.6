@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin
+   id="query-site"
+   name="Site Query Filter"
+   version="1.0.0"
+   provider-name="nutch.org">
+
+   <extension-point
+      id="net.nutch.indexer.IndexingFilter"
+      name="Nutch Indexing Filter"/>
+
+   <extension-point
+      id="net.nutch.searcher.QueryFilter"
+      name="Nutch Query Filter"/>
+
+   <runtime>
+      <library name="query-site.jar">
+         <export name="*"/>
+      </library>
+   </runtime>
+
+   <extension id="net.nutch.search.site.SiteIndexingFilter"
+              name="Nutch Site Indexing Filter"
+              point="net.nutch.indexer.IndexingFilter">
+      <implementation id="SiteIndexingFilter"
+                      class="net.nutch.searcher.site.SiteIndexingFilter"/>
+   </extension>
+
+
+   <extension id="net.nutch.searcher.site.SiteQueryFilter"
+              name="Nutch Site Query Filter"
+              point="net.nutch.searcher.QueryFilter">
+      <implementation id="SiteQueryFilter"
+                      class="net.nutch.searcher.site.SiteQueryFilter"
+                      raw-fields="site"/>
+   </extension>
+
+</plugin>

@@ -1,0 +1,3 @@
+# list domains you don't want to crawl (by suffix) in this file.
+# hash-marks indicate comments, and lines will be whitespace trimmed.
+# list only one domain per line.
