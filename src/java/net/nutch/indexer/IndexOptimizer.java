@@ -7,6 +7,7 @@ import java.util.*;
 import java.io.*;
 
 import org.apache.lucene.util.*;
+import org.apache.lucene.util.PriorityQueue;
 import org.apache.lucene.document.*;
 import org.apache.lucene.index.*;
 import org.apache.lucene.search.*;
